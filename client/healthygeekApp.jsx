@@ -1,3 +1,8 @@
 Meteor.startup(() => {
-	React.render(<Layout/>, document.body);
+	let binxiaisTestingapp = (
+		<Layout>
+			<Outputfood />
+		</Layout>
+	); 
+	React.render(binxiaisTestingapp, document.body);
 });
