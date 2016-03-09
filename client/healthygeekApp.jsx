@@ -1,8 +1,8 @@
 Meteor.startup(() => {
-	let binxiaisTestingapp = (
-		<Layout>
-			<Outputfood />
-		</Layout>
-	); 
-	React.render(binxiaisTestingapp, document.body);
+	  // seed the database
+  if (Foods.find().count() == 0) {
+    for (var i = 0; i < 5; i++) {
+      Foods.insert({name: `食品 ${i}`});
+    }
+  }
 });
