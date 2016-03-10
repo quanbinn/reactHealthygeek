@@ -6,3 +6,7 @@ Router.route('/', () => {
 	); 
 	React.render(binxiaisTestingapp, document.body);
 });
+
+Router.route('/addfood', function () {
+  React.render(<Addfood />, document.body);
+});

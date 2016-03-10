@@ -15,8 +15,16 @@ Layout = React.createClass({
     document.getElementById("myWeightInfo").textContent = "我的体重是 " + myWeight +".";  
     document.getElementById("myBMIInfo").textContent = "我的BMI是 " + myBMI +".";  
 
+		BMIInfos.insert({
+	    Height: myHeight,
+	    Weight: myWeight,
+	    BMI: myBMI,
+	    createdAt: new Date()
+    });
+
     // Clear form
-    form.reset();
+    React.findDOMNode(this.refs.myHeight).value = "";
+    React.findDOMNode(this.refs.myWeight).value = "";
   },
 
 	render() {
