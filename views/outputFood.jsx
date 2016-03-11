@@ -11,7 +11,13 @@ Outputfood = React.createClass({
   },
 
   render() {
-  	console.log('render()');
+    console.log(this);
+    console.log(typeof(this));
+    console.log(React);
+    console.log(typeof(React));
+  	//console.log(data);
+    //console.log(typeof(data));   
+
       let foods = this.data.foods.map((token) => <li key={token._id}>{token.name}</li>);
     return (
     	<ul>
