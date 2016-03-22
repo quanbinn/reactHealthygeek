@@ -22,9 +22,10 @@ Layout = React.createClass({
 	    createdAt: new Date()
     });
 
-    // Clear form
-    React.findDOMNode(this.refs.myHeight).value = "";
-    React.findDOMNode(this.refs.myWeight).value = "";
+		// Clear form
+    var form = React.findDOMNode(this.refs.form);
+    form.reset();
+
   },
 
 	render() {
@@ -42,7 +43,7 @@ Layout = React.createClass({
 				<img src="image/food/pizza.jpg" class="imageSet" /> 
 				<img src="image/food/tuna-12inch-subway.jpg" class="imageSet" /> 
         
-		    <form onSubmit={e => this.handleSubmit(e) }>
+		    <form ref="form" onSubmit={this.handleSubmit}>
 					 身高：<input type="number" min="0" max="300" step="0.5" placeholder="厘米" ref="myHeight" /><br />
 		       体重：<input type="number" min="0" max="1000" step="0.5" placeholder="公斤" ref="myWeight" /><br />
 		      <input type="submit" value="计算BMI" />

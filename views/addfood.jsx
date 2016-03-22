@@ -1,5 +1,5 @@
 Addfood = React.createClass({
-  binxiaIsHandleSubmit(e) {
+  handleSubmit(e) {
     // Prevent default browser form submit
     e.preventDefault();
 
@@ -49,23 +49,15 @@ Addfood = React.createClass({
     document.getElementById("foodCholesterolPercentDVQuotient").textContent = "胆固醇占比/卡路里占比：" + cholesterolPercentDVQuotient;  
 
     // Clear form
-    React.findDOMNode(this.refs.name).value = "";
-    React.findDOMNode(this.refs.brand).value = "";
-    React.findDOMNode(this.refs.unit).value = "";
-    React.findDOMNode(this.refs.calory).value = "";
-    React.findDOMNode(this.refs.totalFat).value = "";
-    React.findDOMNode(this.refs.saturatedFat).value = "";
-    React.findDOMNode(this.refs.cholesterol).value = "";
-    React.findDOMNode(this.refs.category).value = "";
-    React.findDOMNode(this.refs.imageSource).value = "";
-    React.findDOMNode(this.refs.resource).value = "";
+    var form = React.findDOMNode(this.refs.form);
+    form.reset();
 
  },
 
   render() {
     return (
     <div>
-      <form onSubmit={e => this.binxiaIsHandleSubmit(e) }>
+      <form ref="form" onSubmit={this.handleSubmit}>
         名称：<input type="text" placeholder="食品名称" ref="name" /><br />
         品牌：<input type="text" placeholder="品牌" ref="brand" /><br />
         单位：<input type="text" placeholder="克" ref="unit" /><br />
