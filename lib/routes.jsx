@@ -10,3 +10,7 @@ Router.route('/', () => {
 Router.route('/addfood', function () {
   React.render(<Addfood />, document.body);
 });
+
+Router.route('/test', function () {
+  React.render(<HighSaturatedFatPercentFood />, document.body);
+});
