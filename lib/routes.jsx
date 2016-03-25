@@ -14,3 +14,7 @@ Router.route('/addfood', function () {
 Router.route('/test', function () {
   React.render(<HighSaturatedFatPercentFood />, document.body);
 });
+
+Router.route('/bmiform', function () {
+  React.render(<BMIForm />, document.body);
+});
