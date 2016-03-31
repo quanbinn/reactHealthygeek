@@ -1,20 +1,18 @@
 Router.route('/', () => {
-	let binxiaisTestingapp = (
+	let app = (
 		<Layout>
+			<BMIForm />
+			<Addfood />
 			<Outputfood />
 		</Layout>
 	); 
-	React.render(binxiaisTestingapp, document.body);
-});
-
-Router.route('/addfood', function () {
-  React.render(<Addfood />, document.body);
+	React.render(app, document.body);
 });
 
 Router.route('/test', function () {
   React.render(<HighSaturatedFatPercentFood />, document.body);
 });
 
-Router.route('/bmiform', function () {
-  React.render(<BMIForm />, document.body);
+Router.route('/addfood', function () {
+  React.render(<Addfood />, document.body);
 });

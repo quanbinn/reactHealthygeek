@@ -1,5 +1,4 @@
 BMIForm = React.createClass({
-    /*
   handleSubmit(e) {
     // Prevent default browser form submit
     e.preventDefault();
@@ -11,11 +10,13 @@ BMIForm = React.createClass({
     var myBMIFloatNum = myWeight / ((myHeight / 100) * (myHeight / 100));// Calculate my BMI(kg/m2)
     var myBMI = myBMIFloatNum.toFixed(1);     // Calculate my BMI round(1)
 
+    /*
     // render the BMI info filled
     document.getElementById("myHeightInfo").textContent = "我的身高是 " + myHeight +".";  
     document.getElementById("myWeightInfo").textContent = "我的体重是 " + myWeight +".";  
     document.getElementById("myBMIInfo").textContent = "我的BMI是 " + myBMI +".";  
-
+    */
+    
     BMIInfos.insert({
         Height: myHeight,
         Weight: myWeight,
@@ -27,7 +28,7 @@ BMIForm = React.createClass({
     var form = React.findDOMNode(this.refs.form);
     form.reset();
   },
-*/
+
     render(){
         return (
             <form ref="form" onSubmit={this.handleSubmit}>                   
