@@ -12,7 +12,7 @@ Outputfood = React.createClass({
   	//console.log(data);
     //console.log(typeof(data));   
 
-    let foods = this.data.foods.map((token) => <li key={token._id}>{token.name}</li>);
+    let foods = this.data.foods.map((token) => <li key={token._id}><img src={token.imageSource} class="imageSet" /></li>);
     return (
     	<ul>
     		{foods}
