@@ -1,14 +1,20 @@
 BMIForm = React.createClass({
+  getInitialState(){
+    return {bmi: 0};
+  },  
+
   handleSubmit(e) {
     // Prevent default browser form submit
     e.preventDefault();
 
         // Get value from form element
-    var myHeight = React.findDOMNode(this.refs.myHeight).value.trim();
-    var myWeight = React.findDOMNode(this.refs.myWeight).value.trim();
+    var myHeight = ReactDOM.findDOMNode(this.refs.myHeight).value.trim();
+    var myWeight = ReactDOM.findDOMNode(this.refs.myWeight).value.trim();
 
     var myBMIFloatNum = myWeight / ((myHeight / 100) * (myHeight / 100));// Calculate my BMI(kg/m2)
     var myBMI = myBMIFloatNum.toFixed(1);     // Calculate my BMI round(1)
+
+    this.setState({bmi: myBMI});
 
     // render the BMI info filled
     document.getElementById("myHeightInfo").textContent = "我的身高是 " + myHeight +".";  
@@ -27,7 +33,7 @@ BMIForm = React.createClass({
     }else{
         document.getElementById("myBMIAssess").textContent = "我的体重超重，属于严重肥胖"; 
     };
-    
+ 
     BMIInfos.insert({
         Height: myHeight,
         Weight: myWeight,
@@ -36,11 +42,24 @@ BMIForm = React.createClass({
     });
 
     // Clear form
-    var form = React.findDOMNode(this.refs.form);
+    var form = ReactDOM.findDOMNode(this.refs.form);
     form.reset();
   },
 
     render(){
+
+var foodRecomAccordingToBmi;
+if (this.state.bmi < 18.5) {  
+        console.log(this.state.bmi);          
+        console.log("test myBMI < 18.5");                          
+    foodRecomAccordingToBmi = <HighSaturatedFatPercentFood />;
+}else{
+        console.log("test myBMI > 18.5");                          
+             console.log(this.state.bmi);  
+    foodRecomAccordingToBmi = <HighFatPercentFood />;
+};
+
+
         return (
           <div>
             <form ref="form" onSubmit={this.handleSubmit}>                   
@@ -53,6 +72,8 @@ BMIForm = React.createClass({
             <div id="myWeightInfo"></div> 
             <div id="myBMIInfo"></div> 
             <h2 id="myBMIAssess"></h2>
+
+{foodRecomAccordingToBmi}
 
           </div>
         )
