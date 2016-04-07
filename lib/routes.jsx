@@ -2,7 +2,6 @@ Router.route('/', () => {
 	let app = (
 		<Layout>
 			<BMIForm />
-			<Addfood />
 			<Outputfood />
 		</Layout>
 	); 
@@ -27,7 +26,6 @@ Router.route('/test5', function () {
 Router.route('/test6', function () {
   React.render(<SuperhighCholestorelPercentFood />, document.body);
 });
-
 
 Router.route('/addfood', function () {
   React.render(<Addfood />, document.body);
