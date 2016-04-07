@@ -17,6 +17,8 @@ Outputfood = React.createClass({
     return (
       <div>
         <ImageOfFoodList foods={this.data.foods} />
+        <NutritionFactsOfFoodList foods={this.data.foods} />
+        
 		  </div>
     );
 	}
