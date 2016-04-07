@@ -8,24 +8,24 @@ Router.route('/', () => {
 	React.render(app, document.body);
 });
 
+
 Router.route('/test1', function () {
-  React.render(<HighFatPercentFood />, document.body);
+  React.render(<UnderweightFoodRecom />, document.body);
 });
 Router.route('/test2', function () {
-  React.render(<HighSaturatedFatPercentFood />, document.body);
+  React.render(<NormalRangeFoodRecom />, document.body);
 });
 Router.route('/test3', function () {
-  React.render(<HighCholestorelPercentFood />, document.body);
+  React.render(<OverweightAtRiskFoodRecom />, document.body);
 });
 Router.route('/test4', function () {
-  React.render(<SuperhighFatPercentFood />, document.body);
+  React.render(<ModeratelyObeseFoodRecom />, document.body);
 });
 Router.route('/test5', function () {
-  React.render(<SuperhighSaturatedFatPercentFood />, document.body);
+  React.render(<SevereObesityFoodRecom />, document.body);
 });
-Router.route('/test6', function () {
-  React.render(<SuperhighCholestorelPercentFood />, document.body);
-});
+
+
 
 Router.route('/addfood', function () {
   React.render(<Addfood />, document.body);

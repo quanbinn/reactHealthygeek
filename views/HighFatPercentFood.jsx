@@ -19,11 +19,8 @@ HighFatPercentFood = React.createClass({
 	render(){
 		console.log("render highFatPercentFood.jsx");
 
-		let foods = this.data.foods.map((token) => <li key={token._id}>{token.name}</li>);
     return (
-    	<ul>
-    		{foods}
-			</ul>
+        <ImageOfFoodList foods={this.data.foods} />
 		);
 
 	}

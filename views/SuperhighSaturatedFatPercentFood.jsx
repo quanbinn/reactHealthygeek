@@ -13,11 +13,8 @@ SuperhighSaturatedFatPercentFood = React.createClass({
 	render(){
 		console.log("render SuperhighSaturatedFatPercentFood.jsx");
 
-		let foods = this.data.foods.map((token) => <li key={token._id}>{token.name}</li>);
     return (
-    	<ul>
-    		{foods}
-			</ul>
+        <ImageOfFoodList foods={this.data.foods} />
 		);
 	}
 })
