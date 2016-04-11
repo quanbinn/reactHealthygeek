@@ -2,7 +2,6 @@ Router.route('/', () => {
 	let app = (
 		<Layout>
 			<BMIForm />
-			<Outputfood />
 		</Layout>
 	); 
 	React.render(app, document.body);

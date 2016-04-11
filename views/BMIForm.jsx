@@ -15,12 +15,14 @@ BMIForm = React.createClass({
     var myBMI = myBMIFloatNum.toFixed(1);     // Calculate my BMI round(1)
 
     this.setState({bmi: myBMI});
+    console.log(this.state.bmi);  
 
     // render the BMI info filled
     document.getElementById("myHeightInfo").textContent = "我的身高是 " + myHeight +".";  
     document.getElementById("myWeightInfo").textContent = "我的体重是 " + myWeight +".";  
     document.getElementById("myBMIInfo").textContent = "我的BMI是 " + myBMI +".";  
 
+/*
     // output my BMI description according to Hong Kong's BMI recommendation
     if (myBMI < 18.5) {                                 
         document.getElementById("myBMIAssess").textContent = "我的体重过轻"; 
@@ -33,6 +35,7 @@ BMIForm = React.createClass({
     }else{
         document.getElementById("myBMIAssess").textContent = "我的体重超重，属于严重肥胖"; 
     };
+*/
  
     BMIInfos.insert({
         Height: myHeight,
@@ -48,16 +51,25 @@ BMIForm = React.createClass({
 
     render(){
 
-var foodRecomAccordingToBmi;
-if (this.state.bmi < 18.5) {  
-        console.log(this.state.bmi);          
-        console.log("test myBMI < 18.5");                          
-    foodRecomAccordingToBmi = <HighSaturatedFatPercentFood />;
-}else{
-        console.log("test myBMI > 18.5");                          
-             console.log(this.state.bmi);  
-    foodRecomAccordingToBmi = <HighFatPercentFood />;
-};
+        let foodRecomAccordingToBmi;
+
+        if (this.state.bmi === 0) {}                              
+        else if (this.state.bmi < 18.5) {                                 
+          console.log(this.state.bmi);  
+          foodRecomAccordingToBmi = <UnderweightFoodRecom />;
+        }else if (this.state.bmi >= 18.5 && this.state.bmi < 23.0) {
+          console.log(this.state.bmi);  
+          foodRecomAccordingToBmi = <NormalRangeFoodRecom />;
+        }else if (this.state.bmi >= 23.0 && this.state.bmi < 25.0) {
+          console.log(this.state.bmi);  
+          foodRecomAccordingToBmi = <OverweightAtRiskFoodRecom />;
+        }else if (this.state.bmi >= 25.0 && this.state.bmi < 30.0) {
+          console.log(this.state.bmi);  
+          foodRecomAccordingToBmi = <ModeratelyObeseFoodRecom />;
+        }else{
+          console.log(this.state.bmi);  
+          foodRecomAccordingToBmi = <SevereObesityFoodRecom />;
+        };
 
 
         return (
