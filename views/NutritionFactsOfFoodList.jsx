@@ -5,7 +5,7 @@ NutritionFactsOfFoodList = React.createClass({
       	<div>
 		    	<h2>食品名称: {token.name}</h2>
 
-					<div><img src={token.imageSource} key={token._id} class="singleImage" /></div>
+					<div><img src={token.imageSource} key={token._id} className="singleImage" /></div>
 					<a href={token.resource}><h3>数据及信息来源</h3></a>
 
 					<h2>品牌： {token.brand}</h2>
